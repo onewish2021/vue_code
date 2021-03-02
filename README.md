@@ -1,2 +1,2 @@
 # vue_code
-write some vue code 
+writing about some codes of node in my daily
