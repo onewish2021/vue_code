@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-ifelse判断</title>
+</head>
+<body>
+    <!-- if-else -->
+    <!-- <div id="app">
+        <h2 v-if="ok">yes</h2>
+        <h2 v-else>no</h2>
+    </div> -->
+
+    <!-- if-elseif-else -->
+    <div id="app">
+        <h2 v-if="type==='A'">A</h2>
+        <h2 v-else-if="type==='B'">B</h2>
+        <h2 v-else>C</h2>
+    </div>
+
+    <!-- 导入vue.js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+        //创建一个Vue的实例
+        var vm = new Vue({
+            el: "#app",
+            // model层次
+            data: {
+                //ok: true //布尔值
+                type: 'A'
+            }
+        })
+        console.log( vm )
+    </script>
+</body>
+</html>

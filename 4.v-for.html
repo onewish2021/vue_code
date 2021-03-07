@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-for</title>
+</head>
+<body>
+    <!-- if-elseif-else -->
+    <div id="app">
+        <li v-for=" (item,index) in items ">
+            {{ item.message }}---{{index}}
+        </li>
+    </div>
+
+    <!-- 导入vue.js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+        //创建一个Vue的实例
+        var vm = new Vue({
+            el: "#app",
+            // model层次
+            data: {
+                items: [
+                    {message: 'vue2'},
+                    {message: 'vue3'},
+                    {message: 'hello vue'}
+                ]
+            }
+        })
+        console.log( vm )
+    </script>
+</body>
+</html>

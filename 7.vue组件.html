@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue组件</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 组件的使用 -->
+        <!-- <one></one> -->
+        <!-- 组件的传值 -->
+        <!-- 只有v-bind去绑定props的参数，组件才能获取items的内容 -->
+        <one v-for="item in items" v-bind:eventname="item"></one>
+    </div>
+    <!-- 导入vue.js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+        //创建一个vue的组件
+        //默认规则下props的属性只能为小写
+        Vue.component( "one",{
+            props: ['eventname'],//接受参数
+            template: '<h2>{{eventname}}</h2>'//模板
+        } )
+        //创建一个Vue的实例
+        var vm = new Vue({
+            el: "#app",
+            // model层次
+            data: {
+                items: ["day1","day2","day3"]
+            }
+        })
+    </script>
+</body>
+</html>

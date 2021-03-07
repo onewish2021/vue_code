@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <style>
+        /* 自定义标签v-clock解决页面闪烁残留{{info.name}}的问题 */
+        [v-clock]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-clock>
+        <h2> currenttime1 {{currenttime1()}} </h2>
+        <h2>{{this.message}}</h2>
+        <h2> currenttime2 {{currenttime2}} </h2>
+    </div>
+    <!-- 导入vue.js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+        //创建一个Vue的实例
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "hello vue!"
+            },
+            methods: {
+                currenttime1: function(){
+                    return Date.now(); //返回一个时间戳
+                }
+            },
+            computed: { //计算属性的主要特性就是为了不经常变化的计算结果进行缓存，以节约我们的系统开销；且是在虚拟DOM中执行，执行速度比方法快
+                currenttime2: function(){
+                    this.message
+                    return Date.now(); //返回一个时间戳
+                }
+            }
+        })
+    </script>
+</body>
+</html>

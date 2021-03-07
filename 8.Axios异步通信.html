@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios异步通信</title>
+    <style>
+        /* 自定义标签v-clock解决页面闪烁残留{{info.name}}的问题 */
+        [v-clock]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-clock>
+        <h2>{{info.name}}</h2>
+        <a v-bind:href="info.url">点击该标签</a>
+    </div>
+    <!-- 导入vue.js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <!-- 导入axios.js文件 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        //创建一个Vue的实例
+        var vm = new Vue({
+            el: "#app",
+            // model层次
+            // data()方法 
+            data(){
+                // 请求返回的json数据
+                return{
+                    info: {
+                        name: null,
+                        address: {
+                            street: null,
+                            city: null,
+                            contry: null
+                        },
+                        url: null
+                    }
+                }
+            },
+            //钩子函数
+            mounted(){
+                axios.get('./data.json').then( response => ( this.info = response.data ) )
+            }
+        })
+    </script>
+</body>
+</html>

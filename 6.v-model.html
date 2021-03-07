@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model双向绑定</title>
+</head>
+<body>
+        <!-- v-model双向绑定 通过视图改变，数据也发生改变 -->
+        <div id="app">
+            <h2>请输入内容：</h2>
+            <!-- 输入框 -->
+            <!-- <input type="text" v-model="message">{{message}} -->
+            <!-- 文本框 -->
+            <!-- <textarea name="texts" id="texts" cols="30" rows="10" v-model="message"></textarea>
+            {{message}} -->
+            <!-- 多选框 -->
+            <!-- <input type="radio" name="sex" value="男" v-model="message">男
+            <input type="radio" name="sex" value="女" v-model="message">女
+            <h2> {{message}} </h2> -->
+            <!-- 下拉框 -->
+            <select name="xiala" id="xiala" v-model="message">
+                <!-- v-model表达式的初始值未能匹配任何内容，则select元素将被渲染为未选中的状态。在ios中，这会使用户无法选择第一个选项，在这种情况下无法触发change事件。因此推荐设置一个值为空的禁用选项。 -->
+                <option value="" disabled>--请选择--</option> 
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <h2>value:{{message}}</h2>
+        </div>
+    
+        <!-- 导入vue.js文件 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+        <script type="text/javascript">
+            //创建一个Vue的实例
+            var vm = new Vue({
+                el: "#app",
+                // model层次
+                data: {
+                    message: ""
+                },
+                //方法必须定义在methods对象中
+                methods: {
+                    sayhai: function(e){
+                        alert("hello vue!");
+                    }
+                }
+            })
+            console.log( vm )
+        </script>
+</body>
+</html>
